@@ -58,27 +58,18 @@ import '@aws-amplify/ui-react/styles.css';
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-import { Amplify } from 'aws-amplify';
 // import { withInAppMessaging } from '@aws-amplify/ui-react-notifications';
 import { dispatchEvent, syncMessages } from 'aws-amplify/in-app-messaging';
 import '@aws-amplify/ui-react/styles.css'
 import { initializeInAppMessaging } from 'aws-amplify/in-app-messaging';
-import outputs from '../amplify_outputs.json';
-
-
-Amplify.configure(outputs);
 
 initializeInAppMessaging();
-
-
-// await syncMessages();
-
 
 const myFirstEvent = { name: 'my_first_event' };
 
 const client = generateClient<Schema>();
 
-const App = () => {
+function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
   useEffect(() => {
@@ -89,11 +80,9 @@ const App = () => {
   }, []);
 
   function createTodo() {
-        const dateTime = new Date()
-        client.models.Todo.create({ content: window.prompt("Todo content"), responseTime: dateTime.toISOString(),
-        accountRepresentativeId: "1", });
-      }
-    
+    client.models.Todo.create({ content: window.prompt("Todo content") });
+  }
+
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
   }
