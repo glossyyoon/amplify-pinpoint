@@ -58,7 +58,7 @@ import '@aws-amplify/ui-react/styles.css';
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-// import { withInAppMessaging } from '@aws-amplify/ui-react-notifications';
+import { withInAppMessaging } from '@aws-amplify/ui-react-notifications';
 import { dispatchEvent, syncMessages } from 'aws-amplify/in-app-messaging';
 import '@aws-amplify/ui-react/styles.css'
 import { initializeInAppMessaging } from 'aws-amplify/in-app-messaging';
@@ -139,4 +139,4 @@ function App() {
 
 
 
-export default App;
+export default withInAppMessaging(App);

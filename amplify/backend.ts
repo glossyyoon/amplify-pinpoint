@@ -53,7 +53,7 @@ new CfnCampaign(inAppMessagingStack, "Campaign", {
   segmentId: mySegment.attrSegmentId,
   schedule: {
     // ensure the start and end time are in the future
-    startTime: "2024-07-03T18:10:34Z", 
+    startTime: "2024-07-03T20:10:34Z", 
     endTime: "2024-07-20T13:22:40Z",
     frequency: "IN_APP_EVENT",
     eventFilter: {
