@@ -62,13 +62,13 @@ import { Amplify } from 'aws-amplify';
 import { withInAppMessaging } from '@aws-amplify/ui-react-notifications';
 import { dispatchEvent, syncMessages } from 'aws-amplify/in-app-messaging';
 import '@aws-amplify/ui-react/styles.css'
-// import { initializeInAppMessaging } from 'aws-amplify/in-app-messaging';
+import { initializeInAppMessaging } from 'aws-amplify/in-app-messaging';
 import outputs from '../amplify_outputs.json';
 
 
 Amplify.configure(outputs);
 
-// initializeInAppMessaging();
+initializeInAppMessaging();
 
 
 // await syncMessages();
@@ -150,4 +150,4 @@ const App = () => {
 
 
 
-export default withInAppMessaging(App);
+export default App;
